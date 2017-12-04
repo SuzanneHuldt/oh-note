@@ -1,0 +1,4 @@
+function Note() {
+  this.text = "";
+
+};
