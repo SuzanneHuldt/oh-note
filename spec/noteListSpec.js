@@ -27,7 +27,7 @@ function deleteItemFromList() {
   var noteList = new NoteList();
   var note = new Note("Gabby","is amazing everyday of her life");
   noteList.save(note);
-  noteList.delete("Gabby");
+  noteList.delete(1);
   if(noteList._notes.length !== 0) {
     throw new Error("Notelist did not delete the note")
   }

@@ -4,6 +4,7 @@ function Note(name, string) {
   this.text = string;
   this._name = name;
   this._date = new Date();
+  this._id = 0
 };
 
 Note.prototype.updateText = function (newtext) {
@@ -19,5 +20,6 @@ Note.prototype.date = function() {
   return this._date;
 };
 
-
-console.log(this._date);
+Note.prototype.id = function() {
+  return this._id;
+};
