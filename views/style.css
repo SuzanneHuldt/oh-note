@@ -5,13 +5,26 @@ html, body {
   font-family: 'Kanit', sans-serif;
 }
 
+body {
+  background-image: url(assets/background.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  background-color: rgba(255,255,255, 0.6);
+  height: 100%;
+  width: 100%;
+}
+
 #title {
   font-family: 'Monsieur La Doulaise', cursive;
   font-size: 8em;
   font-weight:lighter;
   margin: 0px;
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
 .new-note-form {
@@ -19,15 +32,19 @@ html, body {
   font-size: 4em;
   background-color: #fff;
   margin-left: 40px;
+  transition: 1s;
 }
 
 #new-note-text {
   border: none;
-  width: 80%;
+  width: 40%;
+  padding-left: 20px;
+  transition: 1s;
 }
 
 #new-note-text:focus {
-  font-family: 'Kanit', sans-serif;
+  width: 80%;
+  transition: 1s;
 }
 
 #new-note-text:focus::-webkit-input-placeholder {
@@ -39,6 +56,8 @@ html, body {
 #create-new-note {
   border: 1px solid #000;
   width: 10%;
+  float: right;
+  margin-right: 60px;
 }
 
 #create-new-note:hover {
