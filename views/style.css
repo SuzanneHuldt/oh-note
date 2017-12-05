@@ -58,6 +58,8 @@ body {
   width: 10%;
   float: right;
   margin-right: 60px;
+  min-width: 170px;
+  min-height: 100px;
 }
 
 #create-new-note:hover {
