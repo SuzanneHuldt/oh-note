@@ -18,3 +18,6 @@ NoteList.prototype.delete = function (noteid) {
     };
   };
 };
+
+NoteList.prototype.notes = function () {
+  return this._notes; };
