@@ -1,7 +1,7 @@
 'use strict'
 
-function Note() {
-  this.text = "";
+function Note(string) {
+  this.text = string;
 
 };
 
