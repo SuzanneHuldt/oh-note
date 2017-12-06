@@ -83,3 +83,21 @@ body {
   color: #fff;
   transition: 1s;
 }
+
+.all-notes {
+  width: 100%;
+}
+
+.note {
+  color: #000;
+  background-color: #fff;
+  height: 200px;
+  width: 100px;
+  margin: 60px;
+  display: inline-block;
+  width: 20%;
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 2em;
+  margin: 60px;
+  padding: 20px;
+}
