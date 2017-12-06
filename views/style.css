@@ -103,6 +103,8 @@ body {
   font-size: 1em;
   padding: 20px;
   transition: 1s;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 .note:hover {
   color: #fff;
