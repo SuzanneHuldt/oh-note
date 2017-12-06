@@ -9,6 +9,7 @@ function Note(name, string) {
 
 Note.prototype.updateText = function (newtext) {
   this.text = newtext;
+  // I'm not sure if we need all these return statements
   return this.text;
 };
 

@@ -4,12 +4,16 @@ function NoteList() {
   this._notes = [];
 };
 
-NoteList.prototype.save = function (note) {
+//scooped some id stuff out of save to shorten the method -sh
+NoteList.prototype.save = function (note){
   this._notes.push(note);
-  var idnum = this._notes.length
-  note._id = idnum
-  return this._notes;
-};
+  this.assign_id(note);
+}
+
+NoteList.prototype.assign_id = function(note){
+  var id = this._notes.length
+  note._id = id;
+}
 
 NoteList.prototype.delete = function (noteid) {
   for (var i = this._notes.length - 1; i >= 0; --i){
