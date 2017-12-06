@@ -90,7 +90,6 @@ body {
 
 .all-notes {
   max-width: 100%;
-
 }
 
 .note {
@@ -109,4 +108,13 @@ body {
   color: #fff;
   background-color: rgba(0,0,0,0.6);
   transition: 1s;
+}
+
+.note-title {
+  font-weight: lighter;
+  margin-top: -20px;
+}
+
+.note-text {
+
 }
