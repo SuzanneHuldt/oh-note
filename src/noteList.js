@@ -15,13 +15,19 @@ NoteList.prototype.assign_id = function(note){
   note._id = id;
 }
 
-NoteList.prototype.delete = function (noteid) {
-  for (var i = this._notes.length - 1; i >= 0; --i){
-    if (this._notes[i]._id == noteid){
+// shortened the iterator
+NoteList.prototype.deleteFromSaved = function (noteid) {
+  for (var i = 0; i<this._notes.length; i++)
+  { if (this._notes[i]._id == noteid){
       this._notes.splice(i,1);
     };
   };
 };
 
+// not sure how useful this was just returning the array so now it iterates to return notes
+// at the moment it console logs them but this can ofc be changed to return for hooking
+// up with the interface
 NoteList.prototype.notes = function () {
-  return this._notes; };
+  for (var i = 0; i<this._notes.length; i++)
+  {console.log(this._notes[i])}
+};

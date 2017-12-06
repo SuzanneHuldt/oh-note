@@ -13,6 +13,7 @@ Note.prototype.updateText = function (newtext) {
   return this.text;
 };
 
+// what are these for?
 Note.prototype.name = function() {
   return this._name;
 };
