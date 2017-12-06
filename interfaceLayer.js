@@ -19,13 +19,13 @@ addButton.addEventListener('click', function(event) {
   notebook.save(note);
   noteText.value = '';
   noteTitle.value = '';
-  allNotes.appendChild(newNote);
+  allNotes.insertBefore(newNote, allNotes.childNodes[0]);
   newNote.setAttribute('class', 'note');
   newNote.appendChild(newNoteTitle);
   newNoteTitle.setAttribute('class', 'note-title');
   newNote.appendChild(newNoteText);
   newNoteText.setAttribute('class', 'note-text');
   newNoteTitle.innerHTML = notebook._notes[notebook._notes.length - 1]._name;
-  newNoteText.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 20);
+  newNoteText.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50) + '...';
   event.preventDefault();
 });

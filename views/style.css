@@ -99,8 +99,8 @@ body {
   margin: 75px;
   display: inline-block;
   width: 15%;
-  font-family: 'Monsieur La Doulaise', cursive;
-  font-size: 2em;
+  font-family: 'Spectral SC', serif;
+  font-size: 1em;
   padding: 20px;
   transition: 1s;
 }
@@ -112,7 +112,6 @@ body {
 
 .note-title {
   font-weight: lighter;
-  margin-top: -20px;
 }
 
 .note-text {
