@@ -17,7 +17,6 @@ function preventEmptyNote(){
 function createNoteOnPage(div,title,text) {
   allNotes.insertBefore(div, allNotes.childNodes[0]);
   div.setAttribute('class', 'note');
-  div.setAttribute('href', `#${notebook._notes[notebook._notes.length-1]._id}`);
   div.setAttribute('id', notebook._notes[notebook._notes.length-1]._id);
   div.appendChild(title);
   title.setAttribute('class', 'note-title');
@@ -46,8 +45,10 @@ function addNoteEventListener(allNotes) {
     document.querySelector('#overlay').classList.add('dark-overlay');
     document.querySelector('#title').setAttribute('style','color: white;');
     document.querySelector('#new-note-form').setAttribute('style','display: none;');
-    document.querySelector('.note').setAttribute('style','display: none;');
-    // this.setAttribute('style','display: inline-block;')
+    addButton.setAttribute('style','display: none;');
+    document.location.href=`#${this.id}`,true;
+    // document.querySelector('.note').setAttribute('style','display: none;');
+    // document.querySelector('').setAttribute('style','display: inline-block;')
   });
 }
 
@@ -61,7 +62,6 @@ function createNote() {
     createNoteAndResetForm(new Note(noteTitle.value, noteText.value));
     createNoteOnPage(newNote,newNoteTitle,newNoteText);
     addTextToNote(newNoteTitle,newNoteText);
-    event.preventDefault();
     var notes = document.querySelector('.note');
     addNoteEventListener(notes);
   });
