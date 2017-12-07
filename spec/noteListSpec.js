@@ -1,39 +1,46 @@
-function noteListHasEmptyArray() {
-  var notelist = new NoteList();
-  if(!Array.isArray(notelist._notes)) {
-    throw new Error("NoteList should contain an empty array")
-  }
-  else {
-    console.log("Has empty array,great!")
-  }
-};
-noteListHasEmptyArray();
+var notelistmodule = require('../src/noteList.js')
 
-function saveList() {
-  var noteList = new NoteList();
-  var note = new Note("Marie","is amazing everyday of her life");
-  noteList.save(note);
-  if(noteList._notes.length !== 1) {
-    throw new Error("Notelist did not save the note")
-  }
-  else {
-    console.log("All good the note was saved")
-  }
-};
+  describe('Notelist', function(){
+    var notelist
 
-saveList();
+    beforeEach(function(){
+      notelist = new notelistmodule.NoteList();
+    })
 
-function deleteItemFromList() {
-  var noteList = new NoteList();
-  var note = new Note("Gabby","is amazing everyday of her life");
-  noteList.save(note);
-  noteList.delete(1);
-  if(noteList._notes.length !== 0) {
-    throw new Error("Notelist did not delete the note")
-  }
-  else {
-    console.log("All good the note was deleted")
-  }
-};
+    describe('#_notes', function(){
+      it('has an empty array', function(){
+        expect(notelist._notes).toBeEmpty();
+      })
+    })
 
-deleteItemFromList()
+    describe('#save', function(){
+      var note;
+
+      beforeEach(function(){
+        note = createSpyObj('note')
+        notelist.save(note)
+      });
+
+      it('can save notes', function(){
+        expect(notelist._notes).toContain(note)
+      })
+
+      it('gives notes an id', function(){
+        expect(note._id).toEqual(1)
+      })
+    })
+
+    describe('#delete', function(){
+      var note;
+
+      beforeEach(function(){
+        note = createSpyObj('note')
+        notelist.save(note)
+        notelist.delete(1)
+      });
+
+      it('should delete item from list based on id', function(){
+        expect(notelist._notes).toBeEmpty();
+      })
+    })
+  })
