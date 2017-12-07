@@ -45,10 +45,18 @@ function addNoteEventListener(allNotes) {
     document.querySelector('#overlay').classList.add('dark-overlay');
     document.querySelector('#title').setAttribute('style','color: white;');
     document.querySelector('#new-note-form').setAttribute('style','display: none;');
-    addButton.setAttribute('style','display: none;');
+    var noteNow = this.id;
+    var notes = document.querySelector('.all-notes').children;
+    for (var index = 0; index < notes.length; index++) {
+      var childNote = notes[index];
+      if (childNote.id !== noteNow) {
+        childNote.style.display = 'none';
+      };
+    };
+
+    // var x = document.getElementById(noteNow)
+    // x.style.display = 'inline-block';
     document.location.href=`#${this.id}`,true;
-    // document.querySelector('.note').setAttribute('style','display: none;');
-    // document.querySelector('').setAttribute('style','display: inline-block;')
   });
 }
 
