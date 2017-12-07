@@ -4,6 +4,7 @@ var noteTitle = document.querySelector('#new-note-title');
 var noteText = document.querySelector('#new-note-text');
 var addButton = document.querySelector('#create-new-note');
 var allNotes = document.querySelector('.all-notes');
+var singleNote = document.querySelector('.note');
 
 function preventEmptyNote(){
   if (noteTitle.value == false) {
@@ -15,32 +16,46 @@ function preventEmptyNote(){
   }
 }
 
+function createNoteOnPage(div,title,text) {
+  allNotes.insertBefore(div, allNotes.childNodes[0]);
+  div.setAttribute('class', 'note');
+  div.appendChild(title);
+  title.setAttribute('class', 'note-title');
+  div.appendChild(text);
+  text.setAttribute('class', 'note-text');
+}
 
-addButton.addEventListener('click', function(event) {
-  var newNote = document.createElement('div');
-  var newNoteTitle = document.createElement('h1');
-  var newNoteText = document.createElement('p');
-
-  preventEmptyNote();
-
-  var note = new Note(noteTitle.value, noteText.value);
-
-
-
+function createNoteAndResetForm(note) {
   notebook.save(note);
   noteText.value = '';
   noteTitle.value = '';
-  allNotes.insertBefore(newNote, allNotes.childNodes[0]);
-  newNote.setAttribute('class', 'note');
-  newNote.appendChild(newNoteTitle);
-  newNoteTitle.setAttribute('class', 'note-title');
-  newNote.appendChild(newNoteText);
-  newNoteText.setAttribute('class', 'note-text');
-  newNoteTitle.innerHTML = notebook._notes[notebook._notes.length - 1]._name;
+}
+
+function addTextToNote(title,content) {
+  title.innerHTML = notebook._notes[notebook._notes.length - 1]._name;
   if (notebook._notes[notebook._notes.length - 1].text.length > 50) {
-    newNoteText.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50) + '...';
+    content.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50) + '...';
   } else {
-    newNoteText.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50);
+    content.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50);
   };
-  event.preventDefault();
-});
+}
+
+function createNote() {
+  addButton.addEventListener('click', function(event) {
+    var newNote = document.createElement('div');
+    var newNoteTitle = document.createElement('h1');
+    var newNoteText = document.createElement('p');
+
+    preventEmptyNote();
+    createNoteAndResetForm(new Note(noteTitle.value, noteText.value));
+    createNoteOnPage(newNote,newNoteTitle,newNoteText);
+    addTextToNote(newNoteTitle,newNoteText);
+    event.preventDefault();
+  });
+}
+
+createNote();
+
+// singleNote.addEventListener('click', function() {
+//   console.log("what");
+// });
