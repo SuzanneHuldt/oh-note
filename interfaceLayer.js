@@ -14,6 +14,12 @@ function preventEmptyNote(){
   }
 }
 
+function createNoteAndResetForm(note) {
+  notebook.save(note);
+  noteText.value = '';
+  noteTitle.value = '';
+}
+
 function createNoteOnPage(div,title,text) {
   allNotes.insertBefore(div, allNotes.childNodes[0]);
   div.setAttribute('class', 'note');
@@ -24,18 +30,12 @@ function createNoteOnPage(div,title,text) {
   text.setAttribute('class', 'note-text');
 }
 
-function createNoteAndResetForm(note) {
-  notebook.save(note);
-  noteText.value = '';
-  noteTitle.value = '';
-}
-
 function addTextToNote(title,content) {
   title.innerHTML = notebook._notes[notebook._notes.length - 1]._name;
   if (notebook._notes[notebook._notes.length - 1].text.length > 50) {
     content.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50) + '...';
   } else {
-    content.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50);
+    content.innerHTML = notebook._notes[notebook._notes.length - 1].text;
   };
 }
 
@@ -62,8 +62,9 @@ function createNote() {
     createNoteAndResetForm(new Note(noteTitle.value, noteText.value));
     createNoteOnPage(newNote,newNoteTitle,newNoteText);
     addTextToNote(newNoteTitle,newNoteText);
-    var notes = document.querySelector('.note');
-    addNoteEventListener(notes);
+    event.preventDefault();
+    var allNotes = document.querySelector('.note');
+    addNoteEventListener(allNotes);
   });
 }
 
