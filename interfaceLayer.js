@@ -38,24 +38,28 @@ function addTextToNote(title,content) {
     content.innerHTML = notebook._notes[notebook._notes.length - 1].text;
   };
 }
+function changeNotes(){
+  document.querySelector('#overlay').classList.remove('light-overlay');
+  document.querySelector('#overlay').classList.add('dark-overlay');
+  document.querySelector('#title').setAttribute('style','color: white;');
+  document.querySelector('#new-note-form').setAttribute('style','display: none;');
 
+  var noteNow = this.id;
+  var notes = document.querySelector('.all-notes').children;
+  for (var index = 0; index < notes.length; index++) {
+    var childNote = notes[index];
+    if (childNote.id !== noteNow) {
+      childNote.style.display = 'none';
+    };
+  };
+}
+
+function hashChangeEventListener(){
+  window.addEventListener("hashchange", changeNotes);
+}
 function addNoteEventListener(allNotes) {
   allNotes.addEventListener('click', function() {
-    document.querySelector('#overlay').classList.remove('light-overlay');
-    document.querySelector('#overlay').classList.add('dark-overlay');
-    document.querySelector('#title').setAttribute('style','color: white;');
-    document.querySelector('#new-note-form').setAttribute('style','display: none;');
-    var noteNow = this.id;
-    var notes = document.querySelector('.all-notes').children;
-    for (var index = 0; index < notes.length; index++) {
-      var childNote = notes[index];
-      if (childNote.id !== noteNow) {
-        childNote.style.display = 'none';
-      };
-    };
 
-    // var x = document.getElementById(noteNow)
-    // x.style.display = 'inline-block';
     document.location.href=`#${this.id}`,true;
   });
 }
