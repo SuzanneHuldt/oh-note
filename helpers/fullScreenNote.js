@@ -1,6 +1,7 @@
 function viewSingleNote(currentNoteID){
   darkenBackgroundBrightTitle();
   hideElementsExceptCurrentNote(currentNoteID);
+  addExitButton();
 }
 
 function hashChangeEventListener(){
@@ -42,5 +43,16 @@ function hideNote(childNote) {
 function expandNote(childNote) {
   childNote.classList.remove('note');
   childNote.classList.add('full-screen-note');
-  document.querySelector('.note-text').innerHTML = notebook.getNoteByID(childNote.id).text;
+  document.getElementById(childNote.id).childNodes[1].innerHTML = notebook.getNoteByID(childNote.id).text;
+}
+
+function addExitButton() {
+  var exitButton = document.createElement('div');
+  var exitIcon = document.createElement('i');
+  exitButton.setAttribute('class', 'button-wrapper');
+  findNoteContainer().insertBefore(exitButton, findNoteContainer().firstChild);
+  exitIcon.setAttribute('class', 'material-icons');
+  exitIcon.innerHTML = 'close';
+  exitIcon.setAttribute('id', 'exit-icon');
+  exitButton.appendChild(exitIcon);
 }
