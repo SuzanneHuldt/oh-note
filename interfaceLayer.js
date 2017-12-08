@@ -5,21 +5,6 @@ var noteText = document.querySelector('#new-note-text');
 var addButton = document.querySelector('#create-new-note');
 var allNotes = document.querySelector('.all-notes');
 
-function preventEmptyNote(){
-  if (noteTitle.value == false) {
-    noteTitle.value = 'try a title?'
-  }
-  if (noteText.value == false) {
-    noteText.value = 'write something?'
-  }
-}
-
-function createNoteAndResetForm(note) {
-  notebook.save(note);
-  noteText.value = '';
-  noteTitle.value = '';
-}
-
 function createNoteOnPage(div,title,text) {
   allNotes.insertBefore(div, allNotes.childNodes[0]);
   div.setAttribute('class', 'note');
