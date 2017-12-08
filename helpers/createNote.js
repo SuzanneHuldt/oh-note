@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 
 function preventEmpty(element, _default) {
   if (element.value == false) {
@@ -21,6 +21,7 @@ function clearNoteFields() {
 };
 
 function createNoteAndResetForm() {
+  console.log('Hello, world');
   notebook.save(findNoteTitle().value, findNoteText().value);
   clearNoteFields();
 }
