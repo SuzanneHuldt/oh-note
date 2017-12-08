@@ -21,7 +21,6 @@ function clearNoteFields() {
 };
 
 function createNoteAndResetForm() {
-  console.log('Hello, world');
   notebook.save(findNoteTitle().value, findNoteText().value);
   clearNoteFields();
 }
@@ -46,5 +45,5 @@ function createNoteElement(container) {
   div.setAttribute('id', notebook.last().id());
   addNoteTitle(div);
   addNoteText(div);
-  container.insertBefore(div, container.childNodes[0]);
+  container.insertBefore(div, container.firstChild);
 };
