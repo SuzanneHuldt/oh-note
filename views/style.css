@@ -12,8 +12,15 @@ body {
   background-attachment: fixed;
 }
 
-.overlay {
+.light-overlay {
   background-color: rgba(255,255,255, 0.6);
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.dark-overlay {
+  background-color: rgba(0,0,0, 0.6);
   height: 100%;
   width: 100%;
   overflow-y: scroll;
@@ -29,8 +36,9 @@ body {
 }
 
 .new-note-form {
-  font-family: 'Monsieur La Doulaise', cursive;
-  font-size: 4em;
+  font-family: 'Spectral SC', serif;
+  font-size: 2em;
+  padding: 1em;
   background-color: #fff;
   margin-left: 40px;
   transition: 1s;
@@ -44,7 +52,7 @@ body {
 }
 
 #new-note-text:focus {
-  width: 50%;
+  width: 40%;
   transition: 1s;
 }
 
@@ -62,7 +70,7 @@ body {
 }
 
 #new-note-title:focus {
-  width: 50%;
+  width: 40%;
   transition: 1s;
 }
 
@@ -79,7 +87,7 @@ body {
   margin-right: 60px;
   min-width: 170px;
   border-radius: 0px;
-  padding: 0px;
+  padding: 1em;
 }
 
 #create-new-note:hover {
@@ -96,7 +104,7 @@ body {
   color: #000;
   background-color: #fff;
   height: 200px;
-  margin: 75px;
+  margin: 4%;
   display: inline-block;
   width: 15%;
   font-family: 'Spectral SC', serif;
@@ -116,6 +124,21 @@ body {
   font-weight: lighter;
 }
 
-.note-text {
+.full-screen-note {
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+  font-family: 'Spectral SC', serif;
+  width: 80%;
+  min-height: 40em;
+  word-wrap: break-word;
+  background-color: #fff;
+  padding: 3em;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
 
+.full-screen-note h1 {
+  text-align: center;
+  font-size: 4em;
 }

@@ -25,6 +25,13 @@
   Note.prototype.id = function() {
     return this._id;
   };
+  
+  Note.prototype.preview = function() {
+  if (this.text.length > 50) {
+    return this.text.slice(0, 47) + '...';
+  } else {
+    return this.text;
+  };
 
   exports.Note = Note;
 
