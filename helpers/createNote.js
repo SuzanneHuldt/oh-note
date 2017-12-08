@@ -20,26 +20,30 @@ function clearNoteFields() {
   clear(findNoteText());
 };
 
-function createNoteAndResetForm(note) {
-  notebook.save(note);
+function createNoteAndResetForm() {
+  notebook.save(findNoteTitle().value, findNoteText().value);
   clearNoteFields();
 }
 
-function createNoteOnPage(div,title,text) {
-  allNotes.insertBefore(div, allNotes.childNodes[0]);
-  div.setAttribute('class', 'note');
-  div.setAttribute('id', notebook._notes[notebook._notes.length-1]._id);
-  div.appendChild(title);
+function addNoteTitle(div) {
+  var title = document.createElement('h1');
   title.setAttribute('class', 'note-title');
-  div.appendChild(text);
-  text.setAttribute('class', 'note-text');
-}
+  title.innerHTML = notebook.last().name();
+  div.appendChild(title);
+};
 
-function addTextToNote(title,content) {
-  title.innerHTML = notebook._notes[notebook._notes.length - 1]._name;
-  if (notebook._notes[notebook._notes.length - 1].text.length > 50) {
-    content.innerHTML = notebook._notes[notebook._notes.length - 1].text.slice(0, 50) + '...';
-  } else {
-    content.innerHTML = notebook._notes[notebook._notes.length - 1].text;
-  };
-}
+function addNoteText(div) {
+  var text = document.createElement('p');
+  text.setAttribute('class', 'note-text');
+  text.innerHTML = notebook.last().preview();
+  div.appendChild(text);
+};
+
+function createNoteElement(container) {
+  var div = document.createElement('div');
+  div.setAttribute('class', 'note');
+  div.setAttribute('id', notebook.last().id());
+  addNoteTitle(div);
+  addNoteText(div);
+  container.insertBefore(div, container.childNodes[0]);
+};

@@ -10,7 +10,11 @@ function findAddButton() {
   return document.querySelector('#create-new-note');
 };
 
-function findAllNotes() {
+function findNoteContainer() {
   return document.querySelector('.all-notes');
+};
+
+function findMostRecentNote() {
+  return document.querySelector('.note');
 };
 
