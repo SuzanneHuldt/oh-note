@@ -30,9 +30,17 @@ function hideElementsExceptCurrentNote(currentNoteID) {
   document.querySelector('#new-note-form').setAttribute('style','display: none;');
   var notes = findNoteContainer().children;
   for (var index = 0; index < notes.length; index++) {
-    var childNote = notes[index];
-    if (childNote.id !== currentNoteID) {
-      childNote.style.display = 'none';
-    };
+    var child = notes[index];
+    child.id != currentNoteID ? hideNote(child) : expandNote(child);
   };
+}
+
+function hideNote(childNote) {
+  childNote.style.display = 'none';
+}
+
+function expandNote(childNote) {
+  childNote.classList.remove('note');
+  childNote.classList.add('full-screen-note');
+  document.querySelector('.note-text').innerHTML = notebook.getNoteByID(childNote.id).text;
 }
