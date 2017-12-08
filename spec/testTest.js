@@ -32,8 +32,9 @@ describe('Marie object', function() {
       expect(marie.lower()).toEqual('i dont know');
     });
 
-    it('does not work as it should', function() {
-      expect(marie.says()).toEqual('MVP');
+    it('has been called', function() {
+      marie.says(5, 6);
+      expect(marie.says).toHaveBeenCalledWith(5, 6);
     });
   });
 
