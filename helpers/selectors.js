@@ -17,4 +17,3 @@ function findNoteContainer() {
 function findMostRecentNote() {
   return document.querySelector('.note');
 };
-
