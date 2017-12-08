@@ -4,7 +4,8 @@ function NoteList() {
   this._notes = [];
 };
 
-NoteList.prototype.save = function (note) {
+NoteList.prototype.save = function(title, text) {
+  var note = new Note(title, text);
   this._notes.push(note);
   var idnum = this._notes.length
   note._id = idnum
@@ -20,4 +21,9 @@ NoteList.prototype.delete = function (noteid) {
 };
 
 NoteList.prototype.notes = function () {
-  return this._notes; };
+  return this._notes; 
+};
+
+NoteList.prototype.last = function() {
+  return this._notes.slice(-1)[0];
+};
