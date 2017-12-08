@@ -36,8 +36,9 @@ body {
 }
 
 .new-note-form {
-  font-family: 'Monsieur La Doulaise', cursive;
-  font-size: 4em;
+  font-family: 'Spectral SC', serif;
+  font-size: 2em;
+  padding: 1em;
   background-color: #fff;
   margin-left: 40px;
   transition: 1s;
@@ -51,7 +52,7 @@ body {
 }
 
 #new-note-text:focus {
-  width: 50%;
+  width: 40%;
   transition: 1s;
 }
 
@@ -69,7 +70,7 @@ body {
 }
 
 #new-note-title:focus {
-  width: 50%;
+  width: 40%;
   transition: 1s;
 }
 
@@ -86,7 +87,7 @@ body {
   margin-right: 60px;
   min-width: 170px;
   border-radius: 0px;
-  padding: 0px;
+  padding: 1em;
 }
 
 #create-new-note:hover {
@@ -103,7 +104,7 @@ body {
   color: #000;
   background-color: #fff;
   height: 200px;
-  margin: 75px;
+  margin: 4%;
   display: inline-block;
   width: 15%;
   font-family: 'Spectral SC', serif;

@@ -29,8 +29,8 @@ function hashChangeEventListener(){
 }
 function addNoteEventListener(allNotes) {
   allNotes.addEventListener('click', function() {
-
-    document.location.href=`#${this.id}`,true;
+    console.log(this.id);
+    document.location.href = `#${this.id}`,true;
   });
 }
 
