@@ -21,9 +21,17 @@ NoteList.prototype.delete = function (noteid) {
 };
 
 NoteList.prototype.notes = function () {
-  return this._notes; 
+  return this._notes;
 };
 
 NoteList.prototype.last = function() {
   return this._notes.slice(-1)[0];
+};
+
+NoteList.prototype.getNoteByID = function(id) {
+  for (var i = 0; i < this._notes.length; i++) {
+    if (this._notes[i].id() == id) {
+      return this._notes[i];
+    }
+  };
 };
