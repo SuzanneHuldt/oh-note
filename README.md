@@ -3,7 +3,6 @@
 
 [Introduction](#introduction) | [Running the App](#running-the-app) | [Approach](#approach) | [Challenges](#challenges)
 
-oh-note! was built by [Gabi](https://github.com/gabrielabud), [Marie](https://github.com/mariekerkstoel), [Peter](https://github.com/peterwdj), [Suze](https://github.com/SuzanneHuldt), and [Theo](https://github.com/somemarsupials/).
 
 ## Introduction
 
@@ -37,3 +36,7 @@ From this base, we were then able to work on the development of other features, 
 ## Challenges
 
 One of the key challenges for this project was to recreate the various JavaScript libraries, such as Jasmine or jQuery, that we had used in projects up until this point. To tackle these issues, we built our own testing framework, the *oh-notifier* (which now exists independently of this project and can be found [here](https://github.com/somemarsupials/oh-notifier)), and rewrote code that would usually be written in jQuery in pure JavaScript. To this end, the website http://youmightnotneedjquery.com/ proved invaluable.
+
+
+
+oh-note! was built by [Gabi](https://github.com/gabrielabud), [Marie](https://github.com/mariekerkstoel), [Peter](https://github.com/peterwdj), [Suze](https://github.com/SuzanneHuldt), and [Theo](https://github.com/somemarsupials/).
