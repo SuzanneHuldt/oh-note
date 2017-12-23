@@ -30,6 +30,14 @@ So I can revise things that I have been taught,
 I would like to be able to see all of my notes
 ```
 
+Some sample images from our planning process can be found below:
+
+![MVP](readmeImages/IMG_20171204_144748.jpg)
+
+![Sample interface](readmeImages/IMG_20171204_144748.jpg)
+
+![MVP components](readmeImages/IMG_20171204_155643.jpg)
+
 From this base, we were then able to work on the development of other features, such as being able to view a note, or create a nicer-looking user interface for the application. Further features that could be implemented include adding the ability to edit or delete notes, the ability to share a note, or the ability to persist notes.
 
 
